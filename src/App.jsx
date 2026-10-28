@@ -13,21 +13,14 @@ class App extends Component {
       loading: true
     });
 
-    try {
-      const url = 'https://randomfox.ca/floof/';
-      const response = await fetch(url);
-      const data = await response.json();
+    const url = 'https://randomfox.ca/floof/';
+    const response = await fetch(url);
+    const data = await response.json();
 
-      this.setState({
-        image: data.image
-      });
-    } catch (error) {
-      console.error('Error loading fox:', error);
-    } finally {
-      this.setState({
-        loading: false
-      });
-    }
+    this.setState({
+      image: data.image,
+      loading: false
+    });
   };
 
   componentDidMount() {
